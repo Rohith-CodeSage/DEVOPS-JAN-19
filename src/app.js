@@ -12,6 +12,8 @@ app.get("/", (req, res) => res.json({ message: "Training Platform API running" }
 app.use("/courses", courseRoutes);
 app.use("/enrollments", enrollmentRoutes);
 
+app.use((req, res) => res.status(404).json({ message: "Not found" }));
+
 app.use(errorHandler);
 
 module.exports = app;
