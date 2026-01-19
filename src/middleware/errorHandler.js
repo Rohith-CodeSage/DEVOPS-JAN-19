@@ -20,7 +20,9 @@ module.exports = (err, req, res, next) => {
   }
 
   if (err instanceof ForeignKeyConstraintError) {
-    return res.status(400).json({ message: "Invalid courseId (FK constraint)" });
+    return res
+      .status(400)
+      .json({ message: "Invalid courseId (FK constraint)" });
   }
 
   if (err.statusCode) {
